@@ -1,0 +1,12 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+
+# Local RAM Trace data and diagnostics
+*.log
+*.csv
+*_state.tsv
+history.tsv

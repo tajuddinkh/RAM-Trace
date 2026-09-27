@@ -1,0 +1,264 @@
+RAM TRACE PROCESS & SERVICE GUIDE
+=======================================
+
+Purpose
+-------
+This reference explains common Windows and application process names that can look
+cryptic in Task Manager or RAM Trace. RAM Trace also shows these explanations
+inside the application when you select a row.
+
+Important
+---------
+A technical process name is not automatically suspicious. Windows, security tools,
+browsers and virtualisation software use many short executable names. RAM Trace keeps
+the technical name visible for diagnostics, but shows a familiar name first.
+
+A Windows service can also run inside svchost.exe. When this happens, RAM Trace shows
+the actual Windows service display names attached to that Service Host row.
+
+COMMON PROCESSES
+----------------
+
+vmmem
+  Familiar name : Windows Virtual Machine Memory
+  Belongs to    : Windows virtualisation / Hyper-V
+  Purpose       : Represents physical RAM allocated to Hyper-V based virtual
+                  environments, for example WSL2, Docker Desktop, Windows Sandbox
+                  or Android/Google Play virtualisation. vmmem does not by itself
+                  identify which one of those products owns all the memory.
+
+vmmemWSL
+  Familiar name : Windows Subsystem for Linux Memory
+  Belongs to    : WSL2
+  Purpose       : Represents memory used by the WSL2 virtual machine and Linux
+                  workloads running inside it.
+
+crosvm
+  Familiar name : Google Play Virtual Machine
+  Belongs to    : Google Play Games / Android virtualisation
+  Purpose       : Virtual-machine monitor used by Google's virtualised Android/
+                  ChromeOS environment. It can use substantial RAM while Google
+                  Play Games is running.
+
+svchost
+  Familiar name : Windows Service Host
+  Belongs to    : Windows services
+  Purpose       : Generic host for one or more Windows services. RAM Trace shows the
+                  service display names in the Windows service(s) column.
+
+dwm
+  Familiar name : Desktop Window Manager
+  Belongs to    : Windows desktop graphics
+  Purpose       : Renders and composes desktop windows, effects and GPU-accelerated
+                  desktop surfaces.
+
+RuntimeBroker
+  Familiar name : Runtime Broker
+  Belongs to    : Windows app permissions
+  Purpose       : Manages permissions and background behaviour for modern Windows
+                  applications.
+
+explorer
+  Familiar name : Windows Explorer
+  Belongs to    : Windows desktop / File Explorer
+  Purpose       : Provides the Windows desktop shell, taskbar integration and File
+                  Explorer windows.
+
+SearchIndexer
+  Familiar name : Windows Search Indexer
+  Belongs to    : Windows Search
+  Purpose       : Indexes files and other content so Windows searches are faster.
+
+SearchHost / SearchApp
+  Familiar name : Windows Search
+  Belongs to    : Windows Search
+  Purpose       : User-interface/background components for Windows Search.
+
+StartMenuExperienceHost
+  Familiar name : Windows Start Menu
+  Purpose       : Hosts the Windows Start menu interface.
+
+ShellExperienceHost
+  Familiar name : Windows Shell Experience Host
+  Purpose       : Hosts parts of the Windows shell and visual interface.
+
+sihost
+  Familiar name : Shell Infrastructure Host
+  Purpose       : Core Windows shell process responsible for desktop interface
+                  elements.
+
+lsass
+  Familiar name : Local Security Authority
+  Belongs to    : Windows security
+  Purpose       : Handles security policy, sign-in validation and credentials.
+                  This is an essential Windows process and should not be terminated.
+
+csrss
+  Familiar name : Client Server Runtime Process
+  Belongs to    : Windows core
+  Purpose       : Essential Windows subsystem process. Do not terminate it.
+
+smss
+  Familiar name : Windows Session Manager
+  Purpose       : Creates and manages Windows user sessions during start-up.
+
+wininit
+  Familiar name : Windows Start-up Application
+  Purpose       : Starts important Windows services and system processes during boot.
+
+winlogon
+  Familiar name : Windows Logon Application
+  Purpose       : Handles parts of Windows sign-in, lock and secure attention.
+
+services
+  Familiar name : Windows Service Control Manager
+  Purpose       : Starts, stops and manages Windows services.
+
+Registry
+  Familiar name : Windows Registry
+  Purpose       : Represents memory used by Windows registry data structures.
+
+Memory Compression
+  Familiar name : Windows Memory Compression
+  Purpose       : Keeps some memory compressed in RAM to reduce paging to disk.
+                  This is normally beneficial rather than a problem.
+
+Secure System
+  Familiar name : Windows Secure System
+  Belongs to    : Virtualisation-based security
+  Purpose       : Protected Windows process used by security features such as
+                  Credential Guard and Memory Integrity.
+
+System
+  Familiar name : Windows System
+  Belongs to    : Windows kernel / drivers
+  Purpose       : Represents kernel and driver activity not owned by a normal app.
+
+WmiPrvSE
+  Familiar name : WMI Provider Host
+  Purpose       : Hosts Windows Management Instrumentation providers used to query
+                  system information.
+
+conhost
+  Familiar name : Console Window Host
+  Purpose       : Hosts console windows for Command Prompt, PowerShell and other
+                  command-line applications.
+
+dllhost
+  Familiar name : COM Surrogate
+  Purpose       : Hosts COM components outside their parent app for isolation.
+
+fontdrvhost
+  Familiar name : Usermode Font Driver Host
+  Purpose       : Protected host used by Windows font rendering components.
+
+audiodg
+  Familiar name : Windows Audio Device Graph Isolation
+  Purpose       : Hosts Windows audio processing and audio effects.
+
+spoolsv
+  Familiar name : Print Spooler
+  Purpose       : Queues and manages Windows print jobs.
+
+msedgewebview2
+  Familiar name : Microsoft Edge WebView2
+  Purpose       : Embedded web-rendering engine used inside many Windows apps.
+                  Several WebView2 processes can be normal.
+
+OfficeClickToRun
+  Familiar name : Microsoft Office Click-to-Run
+  Purpose       : Manages Microsoft 365/Office updates, repair and installation.
+
+brave
+  Familiar name : Brave Browser
+  Purpose       : Browser. Many processes are normal because tabs, extensions,
+                  renderers and GPU work are isolated.
+
+OneDrive
+  Familiar name : Microsoft OneDrive
+  Purpose       : Synchronises files with OneDrive cloud storage.
+
+Dropbox
+  Familiar name : Dropbox
+  Purpose       : Synchronises files with Dropbox cloud storage.
+
+ShareX
+  Familiar name : ShareX
+  Purpose       : Screenshot and screen-capture utility.
+
+mc-fw-host
+  Familiar name : McAfee Framework Host
+  Belongs to    : McAfee security
+  Purpose       : McAfee framework/security service.
+
+mc-web-view
+  Familiar name : McAfee Web View
+  Belongs to    : McAfee security
+  Purpose       : User-interface or web-rendering component used by McAfee.
+
+mc-neo-host
+  Familiar name : McAfee Neo Host
+  Belongs to    : McAfee security
+  Purpose       : Background component of the McAfee security suite.
+
+PowerToys.Run
+  Familiar name : PowerToys Run
+  Purpose       : Microsoft PowerToys quick launcher/search component.
+
+PowerToys.MouseWithoutBorders
+  Familiar name : PowerToys Mouse Without Borders
+  Purpose       : Allows one keyboard and mouse to control multiple PCs.
+
+PowerToys.ColorPickerUI
+  Familiar name : PowerToys Color Picker
+  Purpose       : PowerToys colour picker component.
+
+Microsoft.CmdPal.UI
+  Familiar name : Microsoft Command Palette
+  Purpose       : Command/search launcher interface.
+
+ublockdns
+  Familiar name : uBlock DNS
+  Purpose       : Local/background DNS filtering service. Exact provider and rules
+                  depend on the installed configuration.
+
+RAM COLOUR GUIDE
+----------------
+No colour       : below 250 MB
+Light blue      : 250 MB to 499 MB
+Light yellow    : 500 MB to 1023 MB
+Light orange    : 1.00 GB to 1.99 GB
+Light red       : 2.00 GB or more
+
+The colours are visual emphasis only. They do not mean a process is unsafe or
+misbehaving. A browser or virtual machine can legitimately use more than 1 GB.
+
+RAM MEASUREMENT
+---------------
+Private RAM in RAM Trace means Private Working Set: physical RAM currently resident
+and private to that process. It is intentionally different from total system RAM,
+because Windows also uses shared/mapped memory, kernel pools, drivers, cache and
+other system allocations.
+
+RAM Trace's main LIVE RAM figure should be compared with Task Manager's overall
+"In use" memory value, not with the sum of the process rows.
+
+
+MEASUREMENT NOTES
+------------------
+Windows / system / shared memory
+  This label replaces the older "Shared / mapped / other" wording. It covers RAM
+  Windows is using that cannot honestly be attributed to one normal application,
+  including shared mappings, kernel-managed allocations and protected components.
+
+vmmem possible source
+  RAM Trace can look for related Google Play Games, WSL2, Docker Desktop or
+  Windows Sandbox processes. Any match is shown as a POSSIBLE source only. vmmem
+  itself does not reliably identify the exact owner of every byte.
+
+Measurement notes
+  Desktop Window Manager, security software and protected Windows components can
+  legitimately show a different figure from a Task Manager row because the tools
+  can group processes differently and Windows can expose shared/protected memory in
+  different ways. RAM Trace continues to use Private Working Set for normal process
+  rows and the whole-system LIVE card as the authoritative total RAM in use.
